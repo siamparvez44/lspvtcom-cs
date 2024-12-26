@@ -49,18 +49,18 @@ const Hero = () => {
   return (
     <div className="relative h-screen overflow-hidden bg-background">
       <section className="flex h-full flex-col items-center justify-center gap-6 sm:grid sm:grid-cols-2 sm:gap-16 xl:grid-cols-3 xl:gap-20">
-        <div className="space-y-6 text-left sm:space-y-16 xl:col-span-2">
+        <div className="space-y-6 text-center sm:space-y-16 sm:text-left xl:col-span-2">
           <h1 className="font-display text-2xl font-bold lowercase text-black dark:text-white sm:text-4xl lg:text-6xl">
             Coming Soon to LevelUP the World!
           </h1>
+          <div className="mx-auto size-[300px] sm:hidden">
+            <IconCloud iconSlugs={slugs} />
+          </div>
           <p className="text-md italic text-neutral-600 dark:text-neutral-300 sm:text-xl">
-            {/* This landing Landing page is built specially to{" "}
-            <b>save your time</b>. Find the <b>product-market-fit</b> before you
-            launch. */}
             We&apos;re working behind the scenes to bring you innovative IT
             solutions, training, and services — stay tuned for the launch!
           </p>
-          <div className="flex items-center gap-7">
+          <div className="flex items-center justify-center gap-7 sm:justify-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
@@ -115,7 +115,7 @@ const Hero = () => {
               </svg>
             </div>
         </div>
-        <div className="size-[300px] sm:size-auto">
+        <div className="hidden sm:block sm:size-auto">
           <IconCloud iconSlugs={slugs} />
         </div>
       </section>
