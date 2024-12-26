@@ -1,13 +1,11 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
 
-import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import DotPattern from "@/components/magicui/dot-pattern"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-import DockLive from "@/components/dock-live"
 import { bodyFont, displayFont } from "@/public/fonts"
 
 export const metadata: Metadata = {
