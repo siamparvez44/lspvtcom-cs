@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 
 export type DynamicCloudProps = {
-  iconSlugs?: string[]; // Made iconSlugs optional
+  iconSlugs?: string[]; // Optional array for icon slugs
   imageArray?: string[];
 };
 
@@ -23,7 +23,6 @@ export const cloudProps: Omit<ICloud, "children"> = {
       justifyContent: "center",
       alignItems: "center",
       width: "100%",
-      paddingTop: 40,
     },
   },
   options: {
@@ -32,14 +31,12 @@ export const cloudProps: Omit<ICloud, "children"> = {
     wheelZoom: false,
     imageScale: 2,
     activeCursor: "default",
-    tooltip: "native",
     initial: [0.1, -0.1],
     clickToFront: 500,
     tooltipDelay: 0,
     outlineColour: "#0000",
     maxSpeed: 0.04,
     minSpeed: 0.02,
-    // dragControl: false,
   },
 };
 
@@ -70,15 +67,20 @@ export const renderCustomIcon = (
 type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
 
 export default function IconCloud({
-  iconSlugs = [], // Default to an empty array if not provided
+  iconSlugs = [],
   imageArray,
 }: DynamicCloudProps) {
   const [data, setData] = useState<IconData | null>(null);
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Ensure theme and component are mounted on the client
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (iconSlugs.length > 0) {
-      // Check if iconSlugs is not empty
       fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
     }
   }, [iconSlugs]);
@@ -91,21 +93,27 @@ export default function IconCloud({
     );
   }, [data, theme]);
 
+  if (!mounted) {
+    return null; // Prevent rendering until fully mounted
+  }
+
   return (
-    // @ts-ignore
     <Cloud {...cloudProps}>
-      <>
-        <>{renderedIcons}</>
-        {imageArray &&
-          imageArray.length > 0 &&
-          imageArray.map((image, index) => {
-            return (
-              <a key={index} href="#" onClick={(e) => e.preventDefault()}>
-                <Image height="42" width="42" alt="A globe" src={image} />
-              </a>
-            );
-          })}
-      </>
-    </Cloud>
+    {[
+      ...renderedIcons || [],
+      ...(imageArray?.map((image, index) => (
+        <Image
+          key={index}
+          height={42}
+          width={42}
+          alt={`Icon ${index}`}
+          src={image}
+        />
+      ))) || [],
+    ]}
+  </Cloud>
+  
+  
+
   );
 }
