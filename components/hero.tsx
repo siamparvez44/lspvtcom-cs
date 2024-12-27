@@ -2,49 +2,10 @@
 
 import Link from "next/link"
 import IconCloud from "./ui/icon-cloud"
+import IconCube from "@/app/cloud"
+import Globe from "./ui/globe"
 
 const Hero = () => {
-  const slugs = [
-    "typescript",
-    "javascript",
-    "java",
-    "react",
-    "flutter",
-    "android",
-    "ios",
-    "html5",
-    "css3",
-    "nodedotjs",
-    "express",
-    "nextdotjs",
-    "prisma",
-    "amazonaws",
-    "postgresql",
-    "firebase",
-    "vercel",
-    "docker",
-    "git",
-    "github",
-    "gitlab",
-    "visualstudiocode",
-    "androidstudio",
-    "figma",
-    "python",
-    "php",
-    "bootstrap",
-    "reactbootstrap",
-    "sass",
-    "tailwindcss",
-    "asana",
-    "vite",
-    "jquery",
-    "threedotjs",
-    "terraform",
-    "redux",
-    "wordpress",
-    "pycharm",
-  ]
-
   return (
     <div className="relative h-screen overflow-hidden bg-background">
       <section className="flex h-full flex-col items-center justify-center gap-6 sm:grid sm:grid-cols-2 sm:gap-16 xl:grid-cols-3 xl:gap-20">
@@ -53,13 +14,25 @@ const Hero = () => {
             Coming Soon to LevelUP the World!
           </h1>
           <div className="mx-auto size-[300px] sm:hidden">
-            <IconCloud iconSlugs={slugs} />
+          <IconCube />
           </div>
           <p className="text-md italic text-neutral-600 dark:text-neutral-300 sm:text-xl">
             We&apos;re working behind the scenes to bring you innovative IT
             solutions, training, and services — stay tuned for the launch!
           </p>
           <div className="flex items-center justify-center gap-7 sm:justify-start">
+            <Link href="https://www.facebook.com/lspvtcom"  target="_blank" className="duration-400 rounded-xl p-2 transition-all ease-in-out hover:bg-gray-400/10">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                className="size-5 cursor-pointer"
+              >
+                <path
+                  fill="currentColor"
+                  d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
+                />
+              </svg>
+            </Link>
             <Link href="https://www.instagram.com/lspvtcom" target="_blank" className="duration-400 rounded-xl p-2 transition-all ease-in-out hover:bg-gray-400/10">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -72,18 +45,6 @@ const Hero = () => {
                 />
               </svg>
             </Link>
-            <Link href="https://www.facebook.com/lspvtcom"  target="_blank" className="duration-400 rounded-xl p-2 transition-all ease-in-out hover:bg-gray-400/10">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 320 512"
-                className="size-5 cursor-pointer"
-              >
-                <path
-                  fill="currentColor"
-                  d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
-                />
-              </svg>
-              </Link>
               <Link href="https://www.linkedin.com/company/lspvtcom" target="_blank" className="duration-400 rounded-xl p-2 transition-all ease-in-out hover:bg-gray-400/10">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +84,7 @@ const Hero = () => {
             </div>
         </div>
         <div className="hidden sm:block sm:size-auto">
-          <IconCloud iconSlugs={slugs} />
+          <IconCube />
         </div>
       </section>
     </div>
