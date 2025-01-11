@@ -1,9 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import IconCloud from "./ui/icon-cloud"
-import IconCube from "@/app/cloud"
-import Globe from "./ui/globe"
+import {IconCube} from "@/app/cloud"
 
 const Hero = () => {
   return (
