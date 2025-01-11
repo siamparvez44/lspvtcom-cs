@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import {IconCube} from "@/app/cloud"
+import IconCube from "@/app/cloud"
 
 const Hero = () => {
   return (
